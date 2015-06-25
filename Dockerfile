@@ -1,5 +1,6 @@
-FROM ubuntu:trusty
-MAINTAINER Fernando Mayo <fernando@tutum.co>
+FROM impulsecloud/ic-ubuntu:latest
+# Forked from tutum/haproxy
+MAINTAINER Johann du Toit <johann@impulsecloud.com.au>
 
 # Install RabbitMQ
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F7B8CEA6056E8E56 && \
