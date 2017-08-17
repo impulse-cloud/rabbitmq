@@ -1,10 +1,10 @@
 FROM impulsecloud/ic-ubuntu:latest
 # Forked from tutum/haproxy
-MAINTAINER Johann du Toit <johann@impulsecloud.com.au>
+MAINTAINER Johann du Toit <johann@winkreports.com>
 
 # Install RabbitMQ
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F7B8CEA6056E8E56 && \
-    echo "deb http://www.rabbitmq.com/debian/ testing main" >> /etc/apt/sources.list && \
+RUN wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | apt-key add - && \
+    echo "deb http://www.rabbitmq.com/debian/ testing main" | tee /etc/apt/sources.list.d/rabbitmq.list && \
     apt-get update && \
     apt-get install -y rabbitmq-server pwgen && \
     rabbitmq-plugins enable rabbitmq_management && \
